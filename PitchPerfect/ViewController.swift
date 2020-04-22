@@ -10,17 +10,33 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var recordingLabel: UILabel!
+    @IBOutlet weak var recordButton: UIButton!
+    @IBOutlet weak var stopRecordinButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .magenta
+        stopRecordinButton.isEnabled = false
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("viewWillAppear called")
+    }
+ 
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
     @IBAction func recordAudio(_ sender: Any) {
-   print("The record button was pressed")
         recordingLabel.text = "Recording in Progress"
+        stopRecordinButton.isEnabled = true
+        recordButton.isEnabled = false
     }
+    
     @IBAction func stopRecording(_ sender: Any) {
-        print("Stop recording button was pressed")
-        recordingLabel.text = "Recording Stopped"
+        recordingLabel.text = "Recording Stopped. Tap to record"
+        recordButton.isEnabled = true
+        stopRecordinButton.isEnabled = false
+        
     }
 }
