@@ -1,24 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Plu-8u-2nV">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <scene sceneID="CkL-Rc-OMZ">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController storyboardIdentifier="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Plu-8u-2nV" customClass="ViewController" customModule="PitchPerfect" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CBJ-ax-U4v">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Peo-jy-MpS">
+                                <rect key="frame" x="100.66666666666669" y="359.66666666666669" width="174" height="93"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="93" id="Ta4-qo-Und"/>
+                                    <constraint firstAttribute="width" constant="174" id="igx-3u-425"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Record">
+                                    <color key="titleColor" systemColor="systemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="reco:" destination="eXe-va-VKQ" eventType="touchUpInside" id="qBz-Xc-cEQ"/>
+                                    <action selector="recordAudio:" destination="Plu-8u-2nV" eventType="touchUpInside" id="txK-gA-dkS"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to Record" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jDW-IM-dPP">
+                                <rect key="frame" x="134" y="460" width="107" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FYU-XP-uB7">
+                                <rect key="frame" x="117" y="489" width="141" height="41"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="141" id="KDm-ca-y4c"/>
+                                    <constraint firstAttribute="width" secondItem="FYU-XP-uB7" secondAttribute="height" multiplier="141:41" id="oKO-3z-Xlf"/>
+                                </constraints>
+                                <state key="normal" title="Stop Recording">
+                                    <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="stopRecording:" destination="Plu-8u-2nV" eventType="touchUpInside" id="iE3-8W-chL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="jDW-IM-dPP" firstAttribute="centerX" secondItem="Peo-jy-MpS" secondAttribute="centerX" id="1yA-h2-jiH"/>
+                            <constraint firstItem="Peo-jy-MpS" firstAttribute="centerX" secondItem="CBJ-ax-U4v" secondAttribute="centerX" id="7J9-qS-LOk"/>
+                            <constraint firstItem="jDW-IM-dPP" firstAttribute="top" secondItem="Peo-jy-MpS" secondAttribute="bottom" constant="7.3333333333333144" id="jVC-7e-517"/>
+                            <constraint firstItem="FYU-XP-uB7" firstAttribute="top" secondItem="jDW-IM-dPP" secondAttribute="bottom" constant="8" id="oxx-br-PmJ"/>
+                            <constraint firstItem="Peo-jy-MpS" firstAttribute="centerY" secondItem="CBJ-ax-U4v" secondAttribute="centerY" id="rq3-jM-dBw"/>
+                            <constraint firstItem="FYU-XP-uB7" firstAttribute="centerX" secondItem="jDW-IM-dPP" secondAttribute="centerX" id="x19-2b-CC2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2xD-Ba-yKg"/>
                     </view>
+                    <connections>
+                        <outlet property="recordingLabel" destination="jDW-IM-dPP" id="BhB-wI-yB5"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkN-db-T2s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="eXe-va-VKQ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
+            <point key="canvasLocation" x="80.799999999999997" y="-24.384236453201972"/>
         </scene>
     </scenes>
 </document>

@@ -9,12 +9,18 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var recordingLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .magenta
     }
-
-
+    @IBAction func recordAudio(_ sender: Any) {
+   print("The record button was pressed")
+        recordingLabel.text = "Recording in Progress"
+    }
+    @IBAction func stopRecording(_ sender: Any) {
+        print("Stop recording button was pressed")
+        recordingLabel.text = "Recording Stopped"
+    }
 }
-
