@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow()
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let rootViewController = storyboard.instantiateViewController(withIdentifier: "ViewController")
+        let rootViewController = storyboard.instantiateViewController(withIdentifier: "RootViewController")
         
         window?.rootViewController = rootViewController
         return true
