@@ -21,16 +21,8 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         stopRecordinButton.isEnabled = false
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        print("viewWillAppear called")
-    }
-    
     @IBAction func recordAudio(_ sender: Any) {
-        recordingLabel.text = "Recording in Progress"
-        stopRecordinButton.isEnabled = true
-        recordButton.isEnabled = false
-        
+        checkIsRecording(true)
         let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask, true)[0] as String
         let recordingName = "recordedVoice.wav"
         let pathArray = [dirPath, recordingName]
@@ -46,11 +38,9 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         audioRecorder.record()
     }
     
-    
     @IBAction func stopRecording(_ sender: Any) {
-        recordingLabel.text = "Recording Stopped"
-        recordButton.isEnabled = true
-        stopRecordinButton.isEnabled = false
+        checkIsRecording(false)
+        
         audioRecorder.stop()
         let audioSession = AVAudioSession.sharedInstance()
         try! audioSession.setActive(false)
@@ -60,14 +50,29 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         if flag {
             performSegue(withIdentifier: "stopRecording", sender: audioRecorder.url)
         } else{
-        print("recording was unsuccessful")
+            print("recording was unsuccessful")
         }
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "stopRecording" {
             let playSoundVC = segue.destination as! PlaySoundsViewController
             let recordedAudioURL = sender as! URL
             playSoundVC.recordedAudioURL = recordedAudioURL
         }
+    }
+    
+    func checkIsRecording(_ recording: Bool) {
+        if recording {
+            recordingLabel.text = "Recording in Progress"
+            stopRecordinButton.isEnabled = true
+            recordButton.isEnabled = false
+            
+            return
+        }
+        
+        recordingLabel.text = "Tap to Record"
+        recordButton.isEnabled = true
+        stopRecordinButton.isEnabled = false
     }
 }
